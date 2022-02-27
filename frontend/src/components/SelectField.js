@@ -23,7 +23,7 @@ const SelectField = ({
   };
 
   return (
-    <div className="col-md-3">
+    <div className="col-md-3 position-relative">
       <label htmlFor={name} className="form-label custom-label">
         {label}
       </label>
@@ -36,10 +36,9 @@ const SelectField = ({
         {...otherProps}
         className="form-control form-control-md"
         id={name}
-      />
-      {console.log("otherProps", otherProps)}
+      /> 
       {state && (
-        <section className="select-field">
+        <section className="select-field position-absolute w-100">
           {otherProps.value && (
             <div className="select-field-option">type: {otherProps.value}</div>
           )}

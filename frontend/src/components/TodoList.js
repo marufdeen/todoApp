@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import trash from "../assets/Icon/trash.svg";
-import InputField from "./InputField";
+import trash from "../assets/Icon/trash.svg"; 
+import SelectField from "./SelectField";
 function TodoList({ todos, deleteTodo, changeTodoStatus }) {
   const [search, setSearch] = useState("");
 
@@ -45,9 +45,17 @@ function TodoList({ todos, deleteTodo, changeTodoStatus }) {
       )
   );
   return (
-    <div className="row my-5">
+    <div className="container mt-5 mx-5">
       <div className="col-md-8">
-        <InputField name="search" onChange={onChange} value={search} />
+        <div className="d-flex justify-between"> 
+          <SelectField
+            label="Filter: "
+            name="search"
+            onChange={onChange}
+            datasets={todos.map(todo => todo.category)}
+            value={search}
+          />
+        </div>
         <table className="table table-borderless">
           <thead className="table-light">
             <tr>

@@ -8,7 +8,7 @@ function TodoList({ todos, deleteTodo, changeTodoStatus }) {
     setSearch(target.value);
   };
 
-  const complexSearch = (todo) => {
+  const filterTodo = (todo) => {
     if (!todo) return;
     const { title, description, category, done } = todo;
     return (
@@ -21,7 +21,7 @@ function TodoList({ todos, deleteTodo, changeTodoStatus }) {
 
   const todosList = todos.map(
     (todo) =>
-      complexSearch(todo) && (
+      filterTodo(todo) && (
         <tr key={todo._id}>
           <td className="align-middle">
             {

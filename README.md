@@ -22,7 +22,7 @@ A Todo list application.
 
 ## Features
 
-### Posts
+### todos
 
 - Add a new todo
 - List todos
@@ -38,15 +38,17 @@ A Todo list application.
 
 <tr><th>HTTP VERB</th><th>ENDPOINT</th><th>FUNCTIONALITY</th></tr>
 
-<th colspan=3>Posts</th>
+<th colspan=3>Todos</th>
 
-<tr><td>POST</td> <td>/posts</td> <td>Create posts</td></tr>
+<tr><td>POST</td> <td>/todos</td> <td>Create todos</td></tr>
 
-<tr><td>GET</td> <td>/posts</td> <td> View all posts</td></tr>
+<tr><td>GET</td> <td>/todos</td> <td> View all todos</td></tr>
 
-<tr><td>PATCH</td> <td>/posts/:postId</td> <td> Mark post as read</td></tr>
+<tr><td>PATCH</td> <td>/check/:todoId</td> <td> Mark post as read</td></tr>
 
-<tr><td>DELETE</td> <td>/posts/:postId</td> <td>Delete a user</td>
+<tr><td>PATCH</td> <td>/uncheck/:todoId</td> <td> Undo - mark post as read</td></tr>
+
+<tr><td>DELETE</td> <td>/todos/:todoId</td> <td>Delete a todo</td>
 </tr>
  
 </table>
@@ -58,7 +60,6 @@ A Todo list application.
 - git clone
   [enjaba]https://github.com/marufdeen/enjaba)
 - Run `yarn install` or `npm install` to install packages
-- Run `yarn run seed` or `npm run seed` to automatically seed admin into the database
 - Run `yarn run dev` or `npm run dev` to start the server
 - Navigate to [localhost:8080](http://localhost:8080) in browser to access the application
 
@@ -72,7 +73,7 @@ A Todo list application.
  {
  title: String,
  description: String,
- label: String,
+ category: String,
 }
 ```
 
@@ -83,6 +84,5 @@ A Todo list application.
 #### Testing with Postman
 
 - After installing as shown above
-- Navigate to [localhost:8080](http://localhost:8080/api) in
+- Navigate to [localhost:8080](http://localhost:8080/) in
   [Postman](https://getpostman.com/) to access the application
-- Super-admin login details ( {email: admin@dervac.com, password: admin} )

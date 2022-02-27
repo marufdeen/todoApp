@@ -1,0 +1,69 @@
+import React, { useState } from "react";
+import trash from "../assets/Icon/trash.svg";
+import InputField from "./InputField";
+function TodoList({ todos, deleteTodo, changeTodoStatus }) {
+  const [search, setSearch] = useState("");
+
+  const onChange = ({ target }) => {
+    setSearch(target.value);
+  };
+
+  const complexSearch = (todo) => {
+    if (!todo) return;
+    const { title, description, category, done } = todo;
+    return (
+      title.includes(search) ||
+      description.includes(search) ||
+      category.includes(search) ||
+      done.includes(search)
+    );
+  };
+
+  const todosList = todos.map(
+    (todo) =>
+      complexSearch(todo) && (
+        <tr key={todo._id}>
+          <td className="align-middle">
+            {
+              <input
+                onChange={() =>
+                  changeTodoStatus(todo._id, todo.done === "completed")
+                }
+                type="checkbox"
+                checked={todo.done === "completed"}
+              />
+            }
+          </td>
+          <td className="align-middle">{todo.title}</td>
+          <td className="align-middle">{todo.description}</td>
+          <td className="align-middle">{todo.category}</td>
+          <td className="align-middle">{todo.done}</td>
+          <td className="align-middle" onClick={() => deleteTodo(todo._id)}>
+            <img src={trash} alt="delete" className="img-fluid icon" />
+          </td>
+        </tr>
+      )
+  );
+  return (
+    <div className="row my-5">
+      <div className="col-md-8">
+        <InputField name="search" onChange={onChange} value={search} />
+        <table className="table table-borderless">
+          <thead className="table-light">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Todos</th>
+              <th scope="col">Description</th>
+              <th scope="col">Category</th>
+              <th scope="col">Status</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>{todosList ? todosList : "No Todo"}</tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+export default TodoList;

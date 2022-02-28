@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import trash from "../assets/Icon/trash.svg"; 
 import SelectField from "./SelectField";
 function TodoList({ todos, deleteTodo, changeTodoStatus }) {
+
   const [search, setSearch] = useState("");
 
   const onChange = ({ target }) => {
@@ -71,7 +72,7 @@ function TodoList({ todos, deleteTodo, changeTodoStatus }) {
         </table>
       </div>
     </div>
-  );
+  )
 }
 
 export default TodoList;

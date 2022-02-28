@@ -4,9 +4,9 @@ import InputField from "./InputField";
 
 const todoForm = ({todo, feedBack, onChange, onSubmit, categories }) => {
   return (
-    <div className="container mt-5 mx-5">
+    <div className="container">
       {feedBack()}
-      <form action="" method="post" onSubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
         <div className="row"> 
           <InputField
             type="text"

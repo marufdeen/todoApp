@@ -93,7 +93,8 @@ const Todo = () => {
     }
   };
   return (
-    <div>
+    <div className="container">
+      <h1>A simple Todo Application</h1>
       <TodoForm
         todo={inputData}
         feedBack={feedBack}

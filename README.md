@@ -60,6 +60,7 @@ A Todo list application.
 - git clone
   [enjaba]https://github.com/marufdeen/enjaba)
 - Run `yarn install` or `npm install` to install packages
+- Install and start your mongoDB (mongoDB Atlas)
 - Run `yarn run server` or `npm run server` to start the server
 - Run `yarn run client` or `npm run client` to start the client
 - Run `yarn start` or `npm start` to start the server and client (recomended)

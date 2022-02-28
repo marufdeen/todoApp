@@ -28,16 +28,14 @@ const Todo = () => {
   }, []);
 
   const onChange = (e) => {
-    const { name, value } = e.target;
-    const todoCopy = { ...inputData };
-    const newTodoState = { ...todoCopy, [name]: value };
+    const { name, value } = e.target; 
+    const newTodoState = { ...inputData, [name]: value };
     setInputData(newTodoState);
   };
   const onSubmit = (e) => {
-    e.preventDefault();
-    const todoData = { ...inputData };
+    e.preventDefault(); 
     api
-      .post("/todos", todoData)
+      .post("/todos", inputData)
       .then(({ data }) => {
         if (data.error) {
           setError(data.error);

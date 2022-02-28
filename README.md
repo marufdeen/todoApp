@@ -60,7 +60,9 @@ A Todo list application.
 - git clone
   [enjaba]https://github.com/marufdeen/enjaba)
 - Run `yarn install` or `npm install` to install packages
-- Run `yarn run dev` or `npm run dev` to start the server
+- Run `yarn run server` or `npm run server` to start the server
+- Run `yarn run client` or `npm run client` to start the client
+- Run `yarn start` or `npm start` to start the server and client (recomended)
 - Navigate to [localhost:8080](http://localhost:8080) in browser to access the application
 
 ## data
